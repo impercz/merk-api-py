@@ -1,0 +1,10 @@
+include *.pip
+include *.md
+
+recursive-include merkapi *
+
+global-exclude local.py
+global-exclude .coverage
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude .DS_Store

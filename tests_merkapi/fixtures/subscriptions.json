@@ -1,0 +1,26 @@
+{
+  "sk": {
+    "suggest_limit": 99999999,
+    "api_enabled": true,
+    "exports_limit": 99999999,
+    "economic_indicators_hits": 0,
+    "suggest_hits": 0,
+    "details_hits": 9,
+    "economic_indicators_limit": 5000,
+    "exports_hits": 50,
+    "details_limit": 99999999,
+    "api_throttled": false
+  },
+  "cz": {
+    "suggest_limit": 99999999,
+    "api_enabled": true,
+    "exports_limit": 99999999,
+    "economic_indicators_hits": 0,
+    "suggest_hits": 152102,
+    "details_hits": 203,
+    "economic_indicators_limit": 5000,
+    "exports_hits": 136892,
+    "details_limit": 99999999,
+    "api_throttled": false
+  }
+}

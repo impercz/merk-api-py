@@ -1,7 +1,7 @@
 from os.path import join, dirname
 from setuptools import setup
 
-import merkapi
+VERSION = '0.0.3'
 
 
 def parse_reqs(f='requirements.pip'):
@@ -21,7 +21,7 @@ with open('README.md') as readmefile:
 
 setup(
     name='merk-api',
-    version=merkapi.__versionstr__,
+    version=VERSION,
     description='Merk API Python client',
     long_description=long_description,
     author='Vitek Pliska',
