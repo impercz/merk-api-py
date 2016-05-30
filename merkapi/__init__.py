@@ -13,6 +13,7 @@ COUNTRY_ALLOWED = (COUNTRY_CZ, COUNTRY_SK)
 
 class Api(object):
     token = None
+    _enums = {}
 
     def __init__(self, token, content_type='application/msgpack'):
 
@@ -23,35 +24,63 @@ class Api(object):
             'content-type': content_type
         })
         self.loads = getattr(utils, 'loads_%s' % content_type.split('/')[1])
+        self.dumps = getattr(utils, 'dumps_%s' % content_type.split('/')[1])
         self.http = urllib3.HTTPSConnectionPool(
             "api.merk.cz", cert_reqs='CERT_REQUIRED', ca_certs=certifi.where(), headers=headers,
             timeout=urllib3.Timeout(total=5), retries=urllib3.Retry(total=3))
 
     @property
     def subscriptions(self):
+        """
+        :return: Your subscription information for each country set (cz, sk)
+        """
+
         r = self.http.request('GET', '/subscriptions/')
         return self.loads(r.data)
 
-    def suggest_by_regno(self, regno, country_code=COUNTRY_CZ):
-        if country_code not in COUNTRY_ALLOWED:
-            raise RuntimeError("Country code %s is not allowed." % country_code)
+    def suggest(self, query, by='regno', country_code=COUNTRY_CZ):
+        """
+        Suggest company info by regno, by email or by name
+
+        :param query:
+        :param by: one of: 'regno', 'email', 'name'
+        :param country_code: one of 'cz', 'sk'
+        :return:
+        """
 
         r = self.http.request('GET', '/suggest/',
+                              fields={by: query, 'country_code': country_code})
+
+        r.encdata = self.loads(r.data) if r.data else None
+        return r
+
+    def company(self, regno, country_code=COUNTRY_CZ):
+        """
+
+        :param regno: Valid regno
+        :param country_code: one of 'cz', 'sk'
+        :return: Company info
+        """
+
+        r = self.http.request('GET', '/company/',
                               fields={'regno': regno, 'country_code': country_code})
 
-        if r.status == 204:
-            return
+        r.encdata = self.loads(r.data) if r.data else None
+        return r
 
-        return self.loads(r.data)
+    def companies(self, regnos, country_code=COUNTRY_CZ):
 
-    def suggest_by_email(self, email=None, country_code=COUNTRY_CZ):
-        if country_code not in COUNTRY_ALLOWED:
-            raise RuntimeError("Country code %s is not allowed." % country_code)
+        r = self.http.request('POST', '/company/mget/',
+                              body=self.dumps({'regnos': regnos, 'country_code': country_code}))
 
-        r = self.http.request('GET', '/suggest/',
-                              fields={'email': email, 'country_code': country_code})
+        r.encdata = self.loads(r.data) if r.data else None
+        return r
 
-        if r.status == 204:
-            return
+    def get_enums(self, country_code=COUNTRY_CZ):
 
-        return self.loads(r.data)
+        if self._enums.get(country_code, None):
+            return self._enums[country_code]
+        else:
+            r = self.http.request('GET', '/enums/', fields={country_code: country_code})
+            self._enums[country_code] = self.loads(r.data)
+            return self._enums[country_code]

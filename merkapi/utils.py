@@ -22,3 +22,11 @@ def loads_json(data):
         return json.loads(data, encoding='utf-8')
     except ValueError as e:
         log.error('Cannot unpack response from Merk API: %s' % e)
+
+
+def dumps_json(data):
+    return json.dumps(data, ensure_ascii=False)
+
+
+def dumps_msgpack(data):
+    return msgpack.dumps(data)
