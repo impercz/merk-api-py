@@ -1,4 +1,7 @@
+import json
+import logging
 import os.path
+
 
 TEST_TOKEN = 'abcdef123456789'
 
@@ -13,7 +16,10 @@ def load_fixture(*args):
 
 
 def request_callback(request):
-    print(request)
+
+    auth_token = request.headers.get('authorization', '')[6:]
+    if not auth_token == TEST_TOKEN:
+        return 401, {}, '{"detail": "Bad token"}'
 
     ct = request.headers['accept'].split('/')[1]
     params = {}
@@ -25,13 +31,32 @@ def request_callback(request):
             params[k] = v
     except ValueError:
         url = request.url
-    method = request.method
 
-    filename = url.strip('/').split('/')
+    filename = list(url.strip('/').split('/'))
     if 'regno' in params:
+
+        # test 400 bad request
+        try:
+            int(params['regno'])
+        except ValueError:
+            return 400, {}, '{"regno": "Invalid regno"}'
+
+        filename.append('regno')
         filename.append(str(params['regno']))
+
+    if request.method == 'POST' and 'mget' in filename:
+        rnos = json.loads(request.body)['regnos']
+        filename.extend(rnos)
+
     if 'country_code' in params:
         filename.append(str(params['country_code']))
-    filename = '-'.join(filename) + '.%s' % ct
-    body = load_fixture(filename)
+    filename = '-'.join(map(str, filename)) + '.%s' % ct
+
+    # resource not found
+    try:
+        body = load_fixture(filename)
+    except FileNotFoundError:
+        logging.warning("test fixture file not found: %s, returning 204 No Data" % filename)
+        return 204, None, None
+
     return 200, {}, body

@@ -1,0 +1,193 @@
+[
+  {
+    "body": {
+      "persons": [
+        {
+          "first_name": "Tomáš",
+          "last_name": "Berger",
+          "company_role": "Člen statutárního orgánu",
+          "gender": "muž",
+          "age": 32,
+          "link": "https://www.merk.cz/search/osoba/tomas-berger-u-zlicina-158-3-praha/8oLpA32ffIU/",
+          "country_code": "cz",
+          "degree_after": "",
+          "salutation": "Vážený pane Bergere,",
+          "degree_before": ""
+        },
+        {
+          "first_name": "Tomáš",
+          "last_name": "Berger",
+          "company_role": "Společník s vkladem",
+          "gender": "muž",
+          "age": 32,
+          "link": "https://www.merk.cz/search/osoba/tomas-berger-u-zlicina-158-3-praha/8oLpA32ffIU/",
+          "country_code": "cz",
+          "degree_after": "",
+          "salutation": "Vážený pane Bergere,",
+          "degree_before": ""
+        }
+      ],
+      "average_age": 32
+    },
+    "owning_type": {
+      "text": "Soukromé",
+      "id": 2
+    },
+    "bank_accounts": [
+      {
+        "account_number": "243306856",
+        "bank_code": "0300"
+      }
+    ],
+    "phones": [
+      "+420257224099",
+      "+420245009577"
+    ],
+    "is_unreliable_vatpayer": false,
+    "is_vatpayer": true,
+    "regno": 28547888,
+    "secondary_industries": [
+      {
+        "text": "Činnosti v oblasti informačních technologií",
+        "id": "620"
+      },
+      {
+        "text": "Ostatní profesní, vědecké a technické činnosti",
+        "id": "74"
+      }
+    ],
+    "years_in_business": 7,
+    "turnover_history": [
+      {
+        "turnover_id": 70,
+        "year": 2014
+      },
+      {
+        "turnover_id": 60,
+        "year": 2013
+      },
+      {
+        "turnover_id": 50,
+        "year": 2012
+      },
+      {
+        "turnover_id": 50,
+        "year": 2011
+      },
+      {
+        "turnover_id": 60,
+        "year": 2010
+      },
+      {
+        "turnover_id": 50,
+        "year": 2009
+      }
+    ],
+    "taxno": null,
+    "court": {
+      "file_nr": "C     149457",
+      "name": "Městský soud v Praze"
+    },
+    "profit": {},
+    "emails": [
+      "obchod@imper.cz",
+      "tomas.berger@imper.cz",
+      "info@imper.cz",
+      "informace@imper.cz",
+      "jobs@imper.cz",
+      "podpora@imper.cz",
+      "partneri@imper.cz",
+      "fakturace@imper.cz",
+      "marketing@imper.cz",
+      "jan.chalas@imper.cz"
+    ],
+    "bank_accounts_balance": {},
+    "ebidta": {},
+    "mobiles": [],
+    "status": {
+      "text": "Subjekt bez omezení v činnosti",
+      "id": 1
+    },
+    "is_active": true,
+    "legal_form": {
+      "text": "Společnost s ručením omezeným",
+      "id": 112
+    },
+    "link": "https://www.merk.cz/search/detail/cz-28547888/",
+    "business_premises_count": 1,
+    "address": {
+      "number_descriptive": "359",
+      "municipality_part": "Smíchov",
+      "region": {
+        "text": "Hlavní město Praha",
+        "id": "CZ010"
+      },
+      "municipality": "Praha",
+      "number": "359/6",
+      "county": {
+        "text": "Praha 5",
+        "id": "CZ0100e"
+      },
+      "municipality_first": "Praha",
+      "street_fixed": "Viktora Huga",
+      "street": "Viktora Huga",
+      "postal_code": 15000,
+      "number_orientation": "6",
+      "country_code": "cz"
+    },
+    "vat_article": null,
+    "magnitude_history": [
+      {
+        "magnitude_id": 210,
+        "year": 2014
+      },
+      {
+        "magnitude_id": 130,
+        "year": 2013
+      },
+      {
+        "magnitude_id": 130,
+        "year": 2012
+      },
+      {
+        "magnitude_id": 120,
+        "year": 2011
+      },
+      {
+        "magnitude_id": 120,
+        "year": 2010
+      }
+    ],
+    "unreliable_vatpayer_since": null,
+    "vatno": "CZ28547888",
+    "name": "Imper CZ s.r.o.",
+    "webs": [
+      "http://merk.cz",
+      "http://leady.cz",
+      "http://monitora.cz",
+      "http://www.detail.cz",
+      "http://imper.sk",
+      "https://imper.cz",
+      "http://b2bdata.cz"
+    ],
+    "industry": {
+      "text": "Zprostředkovatelské činnosti realitních agentur",
+      "id": "68310"
+    },
+    "magnitude": {
+      "trend": "rising",
+      "lower_bound": "10 zam.",
+      "id": 210,
+      "upper_bound": "19 zam.",
+      "text": "10 - 19 zaměstnanců"
+    },
+    "estab_date": "2009-03-20T00:00:00",
+    "turnover": {
+      "trend": "rising",
+      "lower_bound": "10 mil. Kč",
+      "id": 70,
+      "upper_bound": "29,999 mil. Kč",
+      "text": "10 000 000 - 29 999 999 Kč"
+    }
+  }
+]

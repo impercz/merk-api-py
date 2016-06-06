@@ -36,7 +36,8 @@ class Api(object):
         """
 
         r = self.http.request('GET', '/subscriptions/')
-        return self.loads(r.data)
+        r.encdata = self.loads(r.data) if r.data else None
+        return r
 
     def suggest(self, query, by='regno', country_code=COUNTRY_CZ):
         """
@@ -56,7 +57,6 @@ class Api(object):
 
     def company(self, regno, country_code=COUNTRY_CZ):
         """
-
         :param regno: Valid regno
         :param country_code: one of 'cz', 'sk'
         :return: Company info

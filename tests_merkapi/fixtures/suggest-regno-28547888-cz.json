@@ -1,0 +1,91 @@
+[
+  {
+    "unreliable_vatpayer_since": null,
+    "vatno": "CZ28547888",
+    "taxno": null,
+    "court": {
+      "file_nr": "C     149457",
+      "name": "Městský soud v Praze"
+    },
+    "name": "Imper CZ s.r.o.",
+    "webs": [
+      "http://merk.cz",
+      "http://leady.cz",
+      "http://monitora.cz",
+      "http://www.detail.cz",
+      "http://imper.sk",
+      "https://imper.cz",
+      "http://b2bdata.cz"
+    ],
+    "bank_accounts": [
+      {
+        "account_number": "243306856",
+        "bank_code": "0300"
+      }
+    ],
+    "phones": [
+      "+420257224099",
+      "+420245009577"
+    ],
+    "industry": {
+      "text": "Zprostředkovatelské činnosti realitních agentur",
+      "id": "68310"
+    },
+    "is_active": true,
+    "legal_form": {
+      "text": "Společnost s ručením omezeným",
+      "id": 112
+    },
+    "is_unreliable_vatpayer": false,
+    "magnitude": {
+      "trend": "rising",
+      "lower_bound": "10 zam.",
+      "id": 210,
+      "upper_bound": "19 zam.",
+      "text": "10 - 19 zaměstnanců"
+    },
+    "is_vatpayer": true,
+    "regno": 28547888,
+    "address": {
+      "number_descriptive": "359",
+      "municipality_part": "Smíchov",
+      "region": {
+        "text": "Hlavní město Praha",
+        "id": "CZ010"
+      },
+      "municipality": "Praha",
+      "number": "359/6",
+      "county": {
+        "text": "Praha 5",
+        "id": "CZ0100e"
+      },
+      "municipality_first": "Praha",
+      "street_fixed": "Viktora Huga",
+      "street": "Viktora Huga",
+      "postal_code": 15000,
+      "number_orientation": "6",
+      "country_code": "cz"
+    },
+    "estab_date": "2009-03-20T00:00:00",
+    "emails": [
+      "obchod@imper.cz",
+      "tomas.berger@imper.cz",
+      "info@imper.cz",
+      "informace@imper.cz",
+      "jobs@imper.cz",
+      "podpora@imper.cz",
+      "partneri@imper.cz",
+      "fakturace@imper.cz",
+      "marketing@imper.cz",
+      "jan.chalas@imper.cz"
+    ],
+    "mobiles": [],
+    "turnover": {
+      "trend": "rising",
+      "lower_bound": "10 mil. Kč",
+      "id": 70,
+      "upper_bound": "29,999 mil. Kč",
+      "text": "10 000 000 - 29 999 999 Kč"
+    }
+  }
+]
