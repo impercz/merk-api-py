@@ -2,6 +2,7 @@ include *.pip
 include *.md
 
 recursive-include merkapi *
+recursive-include tests_merkapi
 
 global-exclude local.py
 global-exclude .coverage
