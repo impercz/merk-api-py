@@ -55,8 +55,8 @@ def request_callback(request):
     # resource not found
     try:
         body = load_fixture(filename)
-    except FileNotFoundError:
+    except IOError:
         logging.warning("test fixture file not found: %s, returning 204 No Data" % filename)
-        return 204, None, None
+        return 204, None, ''
 
     return 200, {}, body

@@ -1,7 +1,9 @@
+import sys
 from os.path import join, dirname
 from setuptools import setup
+from setuptools.command.test import test
 
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 
 
 def parse_reqs(f='requirements.pip'):
@@ -19,6 +21,20 @@ install_requires, tests_require = parse_reqs(), parse_reqs('requirements-test.pi
 with open('README.md') as readmefile:
     long_description = readmefile.read()
 
+
+class PyTest(test):
+    def finalize_options(self):
+        test.finalize_options(self)
+        self.test_args = ['tests_merkapi']
+        self.test_suite = True
+
+    def run_tests(self):
+        # import here, cause outside the eggs aren't loaded
+        import pytest
+        errno = pytest.main(self.test_args)
+        sys.exit(errno)
+
+
 setup(
     name='merk-api',
     version=VERSION,
@@ -29,7 +45,7 @@ setup(
     license='BSD',
     url='https://api.merk.cz/docs/',
 
-    packages=('merkapi',),
+    packages=('merkapi', 'tests_merkapi'),
     include_package_data=True,
 
     classifiers=[
@@ -38,13 +54,13 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
         "Topic :: Utilities",
     ],
 
     setup_requires=setup_requires,
     install_requires=install_requires,
     tests_require=tests_require,
+
+    cmdclass={'test': PyTest},
 )
