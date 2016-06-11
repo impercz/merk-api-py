@@ -1,6 +1,9 @@
 # merk-api-py
 Merk API Python client
 
+Latest CircleCI build:  
+[![CircleCI](https://circleci.com/gh/impercz/merk-api-py.svg?style=svg)](https://circleci.com/gh/impercz/merk-api-py)
+
 ## Installation
 
     pip install merk-api
