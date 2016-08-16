@@ -1,3 +1,5 @@
+# coding: utf-8
+
 import merkapi
 from unittest import TestCase
 from urllib3_mock import Responses
@@ -45,6 +47,12 @@ class JsonApiTests(TestCase):
     @responses.activate
     def test_suggest_by_email_pass(self):
         r = self.api.suggest('obchod@imper.cz', by='email')
+
+        assert len(responses.calls) == 1
+
+    @responses.activate
+    def test_suggest_by_email_unicode(self):
+        r = self.api.suggest(u'něco@imper.cz', by='email')
 
         assert len(responses.calls) == 1
 

@@ -1,3 +1,4 @@
+import sys
 import certifi
 import logging
 import urllib3
@@ -9,6 +10,8 @@ log = logging.getLogger(__name__)
 COUNTRY_CZ = 'cz'
 COUNTRY_SK = 'sk'
 COUNTRY_ALLOWED = (COUNTRY_CZ, COUNTRY_SK)
+
+PY2 = bool(sys.version_info.major < 3)
 
 
 class Api(object):
@@ -49,6 +52,8 @@ class Api(object):
         :return:
         """
 
+        if PY2 and not isinstance(query, int):
+            query = query.encode('utf-8')
         r = self.http.request('GET', '/suggest/',
                               fields={by: query, 'country_code': country_code})
 
