@@ -3,7 +3,7 @@ from os.path import join, dirname
 from setuptools import setup
 from setuptools.command.test import test
 
-VERSION = '0.0.5'
+VERSION = '0.0.6'
 
 
 def parse_reqs(f='requirements.pip'):
